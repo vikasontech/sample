@@ -91,14 +91,14 @@ you can change the size of your instance. For example, if your t2.micro instance
 
 # Instance purchasing options
 
-* On-Demand Instances – Pay, by the second, for the instances that you launch.
-* Savings Plans – Reduce your Amazon EC2 costs by making a commitment to a consistent amount of usage, in USD per hour, for a term of 1 or 3 years.
-* Reserved Instances – Reduce your Amazon EC2 costs by making a commitment to a consistent instance configuration, including instance type and Region, for a term of 1 or 3 years.
-* Scheduled Instances – Purchase instances that are always available on the specified recurring schedule, for a one-year term.
-* Spot Instances – Request unused EC2 instances, which can reduce your Amazon EC2 costs significantly.
-* Dedicated Hosts – Pay for a physical host that is fully dedicated to running your instances, and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.
-* Dedicated Instances – Pay, by the hour, for instances that run on single-tenant hardware.
-* Capacity Reservations – Reserve capacity for your EC2 instances in a specific Availability Zone for any duration.
+* **On-Demand Instances** - Pay, by the second, for the instances that you launch.
+* **Savings Plans** - Reduce your Amazon EC2 costs by making a commitment to a consistent amount of usage, in USD per hour, for a term of 1 or 3 years.
+* **Reserved Instances** - Reduce your Amazon EC2 costs by making a commitment to a consistent instance configuration, including instance type and Region, for a term of 1 or 3 years.
+* **Scheduled Instances** - Purchase instances that are always available on the specified recurring schedule, for a one-year term.
+* **Spot Instances** - Request unused EC2 instances, which can reduce your Amazon EC2 costs significantly.
+* **Dedicated Hosts** - Pay for a physical host that is fully dedicated to running your instances, and bring your existing per-socket, per-core, or per-VM software licenses to reduce costs.
+* **Dedicated Instances** - Pay, by the hour, for instances that run on single-tenant hardware.
+* **Capacity Reservations** - Reserve capacity for your EC2 instances in a specific Availability Zone for any duration.
 
 # Key variables that determine Reserved Instance pricing
 
@@ -111,7 +111,7 @@ Region: The Region in which the Reserved Instance is purchased.
 Tenancy: Whether your instance runs on shared (default) or single-tenant (dedicated) hardware. For more information, see Dedicated Instances.
 Platform: The operating system; for example, Windows or Linux/Unix. For more information, see Choosing a platform.
 
-# Term commitment
+Term commitment
 
 You can purchase a Reserved Instance for a one-year or three-year commitment, with the three-year commitment offering a bigger discount.
 
@@ -132,9 +132,9 @@ A Spot Instance is an unused EC2 instance that is available for less than the On
 
 Spot Instances are a cost-effective choice if you can be flexible about when your applications run and if your applications can be interrupted. For example, Spot Instances are well-suited for data analysis, batch jobs, background processing, and optional tasks. For more information, see
 
-Spot Fleet – A set of Spot Instances that is launched based on criteria that you specify. The Spot Fleet selects the Spot Instance pools that meet your needs and launches Spot Instances to meet the target capacity for the fleet.
+**Spot Fleet** - A set of Spot Instances that is launched based on criteria that you specify. The Spot Fleet selects the Spot Instance pools that meet your needs and launches Spot Instances to meet the target capacity for the fleet.
 
-Spot Instance interruption – Amazon EC2 terminates, stops, or hibernates your Spot Instance when the Spot price exceeds the maximum price for your request or capacity is no longer available. Amazon EC2 provides a Spot Instance interruption notice, which gives the instance a two-minute warning before it is interrupted.
+**Spot Instance interruption** - Amazon EC2 terminates, stops, or hibernates your Spot Instance when the Spot price exceeds the maximum price for your request or capacity is no longer available. Amazon EC2 provides a Spot Instance interruption notice, which gives the instance a two-minute warning before it is interrupted.
 
 
 # Dedicated Hosts
@@ -166,12 +166,12 @@ When you hibernate an instance, we signal the operating system to perform hibern
 
 # Hibernation prerequisites
 
-Instance RAM size - must be less than 150 GB.
-* Root volume type - must be an Amazon EBS volume, not an instance store volume.
-* Amazon EBS root volume size - must be large enough to store the RAM contents and accommodate your expected usage, 
-* Amazon EBS root volume encryption - To use hibernation, the root volume must be encrypted to ensure the protection of sensitive content that is in memory at the time of hibernation.
-* Enable hibernation at launch - You cannot enable hibernation on an existing instance (running or stopped). 
-* Purchasing options - This feature is available for On-Demand Instances and Reserved Instances. It is not available for Spot Instances.
+* **Instance RAM size** - must be less than 150 GB.
+* **Root volume type** - must be an Amazon EBS volume, not an instance store volume.
+* **Amazon EBS root volume size** - must be large enough to store the RAM contents and accommodate your expected usage, 
+* **Amazon EBS root volume encryption** - To use hibernation, the root volume must be encrypted to ensure the protection of sensitive content that is in memory at the time of hibernation.
+* **Enable hibernation at launch** - You cannot enable hibernation on an existing instance (running or stopped). 
+* **Purchasing options** - This feature is available for On-Demand Instances and Reserved Instances. It is not available for Spot Instances.
 
 The following actions are not supported for hibernation:
 
@@ -276,19 +276,19 @@ An Elastic Fabric Adapter (EFA) is a network device that you can attach to your 
 
 **Note:** The OS-bypass capabilities of EFAs are not supported on Windows instances. If you attach an EFA to a Windows instance, the instance functions as an Elastic Network Adapter, without the added EFA capabilities.
 
-# Differences between EFAs and ENAs
+## Differences between EFAs and ENAs
 
 Elastic Network Adapters (ENAs) provide traditional IP networking features that are required to support VPC networking. EFAs provide all of the same traditional IP networking features as ENAs, and they also support OS-bypass capabilities. OS-bypass enables HPC and machine learning applications to bypass the operating system kernel and to communicate directly with the EFA device.
 
 
-# EFA limitations
+## EFA limitations
 
 * The EFA must be a member of a security group that allows all inbound and outbound traffic to and from the security group itself.
 * EFA OS-bypass traffic is not routable. Normal IP traffic from the EFA remains routable.
 * You can attach only one EFA per instance.
 
 
-# Monitoring an EFA
+## Monitoring an EFA
 
 Amazon VPC flow logs
 VPC Flow Log to capture information about the traffic going to and from an EFA. Flow log data can be published to Amazon CloudWatch Logs and Amazon S3.
@@ -303,19 +303,19 @@ Amazon CloudWatch provides metrics that enable you to monitor your EFAs in real 
 
 You can use placement groups to **influence the placement of a group of interdependent instances to meet the needs of your workload.** Depending on the type of workload, you can create a placement group using one of the following placement strategies:
 
-**Cluster**– packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.
+**Cluster**- packs instances close together inside an Availability Zone. This strategy enables workloads to achieve the low-latency network performance necessary for tightly-coupled node-to-node communication that is typical of HPC applications.
 
-**Partition** – spreads your instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads, such as Hadoop, Cassandra, and Kafka.
+**Partition** - spreads your instances across logical partitions such that groups of instances in one partition do not share the underlying hardware with groups of instances in different partitions. This strategy is typically used by large distributed and replicated workloads, such as Hadoop, Cassandra, and Kafka.
 
-**Spread** – strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
+**Spread** - strictly places a small group of instances across distinct underlying hardware to reduce correlated failures.
 
-# Cluster placement groups
+## Cluster placement groups
 
 A cluster placement group is a **logical grouping** of instances within **a single Availability Zone**. A cluster placement group can span peered VPCs in the same Region. Instances in the same cluster placement group enjoy a higher per-flow throughput limit of up to 10 Gbps for TCP/IP traffic and are placed in the same high-bisection bandwidth segment of the network.
 
 Cluster placement groups are recommended for applications that benefit from **low network latency, high network throughput, or both**. They are also recommended **when the majority of the network traffic is between the instances in the group**. To provide the lowest latency and the highest packet-per-second network performance for your placement group, choose an instance type that supports enhanced networking
 
-# Partition placement groups
+## Partition placement groups
 
 Partition placement groups help **reduce the likelihood of correlated hardware failures for your application**. When using partition placement groups, Amazon EC2 divides each group into logical segments called partitions. Amazon EC2 ensures that each partition within a placement group has its own set of racks. Each rack has its own network and power source. No two partitions within a placement group share the same racks, allowing you to isolate the impact of hardware failure within your application.
 
@@ -347,7 +347,7 @@ The following rules apply to partition placement groups:
 * A partition placement group with Dedicated Instances can have a maximum of two partitions.
 * Partition placement groups are not supported for Dedicated Hosts.
 
-### Spread placement group rules and limitations
+## Spread placement group rules and limitations
 
 The following rules apply to spread placement groups:
 
@@ -404,6 +404,25 @@ The following are the default rules for each default security group:
 
 Amazon EBS provides durable, block-level storage volumes that you can attach to a running instance. You can use Amazon EBS as a primary storage device for data that requires frequent and granular updates. For example, Amazon EBS is the recommended storage option when you run a database on an instance.
 
+## Benefits of using EBS volumes
+
+### Data availability
+
+When you create an EBS volume, it is automatically replicated within its Availability Zone to prevent data loss due to failure of any single hardware component. You can attach an EBS volume to any EC2 instance in the same Availability Zone. After you attach a volume, it appears as a native block device similar to a hard drive or other physical device. At that point, the instance can interact with the volume just as it would with a local drive. You can connect to the instance and format the EBS volume with a file system, such as ext3, and then install applications.
+An EBS volume is off-instance storage that can persist independently from the life of an instance
+By default, the root EBS volume that is created and attached to an instance at launch is deleted when that instance is terminated. You can modify this behavior by changing the value of the flag DeleteOnTermination to false when you launch the instance. This modified value causes the volume to persist even after the instance is terminated, and enables you to attach the volume to another instance.
+By default, additional EBS volumes that are created and attached to an instance at launch are not deleted when that instance is terminated. You can modify this behavior 
+
+### Data encryption
+
+you can create encrypted EBS volumes with the Amazon EBS encryption feature. All EBS volume types support encryption. You can use encrypted EBS volumes to meet a wide range of data-at-rest encryption requirements for regulated/audited data and applications. Amazon EBS encryption uses 256-bit Advanced Encryption Standard algorithms (AES-256) and an Amazon-managed key infrastructure.
+Amazon EBS provides the ability to create snapshots (backups) of any EBS volume and write a copy of the data in the volume to Amazon S3, where it is stored redundantly in multiple Availability Zones. The volume does not need to be attached to a running instance in order to take a snapshot. As you continue to write data to a volume, you can periodically create a snapshot of the volume to use as a baseline for new volumes.
+Snapshots are incremental backups, meaning that only the blocks on the volume that have changed after your most recent snapshot are saved. If you have a volume with 100 GiB of data, but only 5 GiB of data have changed since your last snapshot, only the 5 GiB of modified data is written to Amazon S3. 
+
+### Flexibility
+
+EBS volumes support live configuration changes while in production. You can modify volume type, volume size, and IOPS capacity without service interruptions
+
 # Amazon EC2 instance store
 
 Many instances can access storage from disks that are physically attached to the host computer. This disk storage is referred to as instance store. Instance store provides temporary block-level storage for instances.
@@ -416,24 +435,6 @@ Amazon EFS provides scalable file storage for use with Amazon EC2. You can creat
 # Amazon S3
 
 Amazon S3 provides access to reliable and inexpensive data storage infrastructure. It is designed to make web-scale computing easier by enabling you to store and retrieve any amount of data, at any time, from within Amazon EC2 or anywhere on the web.
-
-# Benefits of using EBS volumes
-
-## Data availability
-When you create an EBS volume, it is automatically replicated within its Availability Zone to prevent data loss due to failure of any single hardware component. You can attach an EBS volume to any EC2 instance in the same Availability Zone. After you attach a volume, it appears as a native block device similar to a hard drive or other physical device. At that point, the instance can interact with the volume just as it would with a local drive. You can connect to the instance and format the EBS volume with a file system, such as ext3, and then install applications.
-An EBS volume is off-instance storage that can persist independently from the life of an instance
-By default, the root EBS volume that is created and attached to an instance at launch is deleted when that instance is terminated. You can modify this behavior by changing the value of the flag DeleteOnTermination to false when you launch the instance. This modified value causes the volume to persist even after the instance is terminated, and enables you to attach the volume to another instance.
-By default, additional EBS volumes that are created and attached to an instance at launch are not deleted when that instance is terminated. You can modify this behavior 
-
-## Data encryption
-
-you can create encrypted EBS volumes with the Amazon EBS encryption feature. All EBS volume types support encryption. You can use encrypted EBS volumes to meet a wide range of data-at-rest encryption requirements for regulated/audited data and applications. Amazon EBS encryption uses 256-bit Advanced Encryption Standard algorithms (AES-256) and an Amazon-managed key infrastructure.
-Amazon EBS provides the ability to create snapshots (backups) of any EBS volume and write a copy of the data in the volume to Amazon S3, where it is stored redundantly in multiple Availability Zones. The volume does not need to be attached to a running instance in order to take a snapshot. As you continue to write data to a volume, you can periodically create a snapshot of the volume to use as a baseline for new volumes.
-Snapshots are incremental backups, meaning that only the blocks on the volume that have changed after your most recent snapshot are saved. If you have a volume with 100 GiB of data, but only 5 GiB of data have changed since your last snapshot, only the 5 GiB of modified data is written to Amazon S3. 
-
-## Flexibility
-
-EBS volumes support live configuration changes while in production. You can modify volume type, volume size, and IOPS capacity without service interruptions
 
 
 # Multi-volume snapshots
