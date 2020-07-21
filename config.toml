@@ -1,5 +1,5 @@
 baseURL = ''
-title = 'Hugo Book'
+title = 'AWS Solution Architect'
 theme = 'book'
 
 # Book configuration
@@ -35,7 +35,10 @@ enableGitInfo = true
 #  weight = 3
 #
 [menu]
-# [[menu.before]]
+#[[menu.before]]
+#  name = "Github"
+#  url = "https://github.com/alex-shpak/hugo-book"
+#  weight = 10
 [[menu.after]]
   name = "Github"
   url = "https://github.com/alex-shpak/hugo-book"
@@ -58,7 +61,7 @@ enableGitInfo = true
 
   # (Optional, default none) Set leaf bundle to render as side menu
   # When not specified file structure and weights will be used
-  # BookMenuBundle = '/menu'
+  BookMenuBundle = '/menu'
 
   # (Optional, default docs) Specify root page to render child pages as menu.
   # Page is resoled by .GetPage function: https://gohugo.io/functions/getpage/
