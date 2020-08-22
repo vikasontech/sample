@@ -1,7 +1,7 @@
 ---
 title: "Miscellaneous Aws"
 date: 2020-08-20T08:35:33+07:00
-draft: true
+draft: false
 ---
 
 ## Migration Service
